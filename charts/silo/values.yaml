@@ -120,7 +120,7 @@ bucketRoot: ""
 # Number of drives attached to a node
 drivesPerNode: 1
 # Number of Silo containers running
-replicas: 16
+replicas: 1
 # Number of expanded Silo clusters
 pools: 1
 

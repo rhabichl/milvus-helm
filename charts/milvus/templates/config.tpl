@@ -43,7 +43,7 @@ common:
   storageType: remote
 {{- end }}
 
-silo:
+minio:
 {{- if .Values.externalS3.enabled }}
   address: {{ .Values.externalS3.host }}
   port: {{ .Values.externalS3.port }}

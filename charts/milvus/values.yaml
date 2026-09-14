@@ -656,11 +656,17 @@ silo:
   enabled: true
   name: silo
   mode: distributed
+  # silo distributed mode needs >= 4 drives for erasure coding
+  replicas: 4
   image:
-    tag: "RELEASE.2024-12-18T13-15-44Z"
+    tag: "RELEASE.2026-09-03T13-18-01Z"
     pullPolicy: IfNotPresent
   accessKey: minioadmin
   secretKey: minioadmin
+  # silo chart reads rootUser/rootPassword (not accessKey/secretKey); keep them in
+  # sync or Milvus S3 auth fails with "Access Key Id you provided does not exist"
+  rootUser: minioadmin
+  rootPassword: minioadmin
   existingSecret: ""
   bucketName: "milvus-bucket"
   rootPath: file

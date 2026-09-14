@@ -308,11 +308,11 @@ Woodpecker MinIO address
 {{- .Values.woodpecker.minio.address -}}
 {{- else if .Values.externalS3.enabled -}}
 {{- .Values.externalS3.host -}}
-{{- else if .Values.minio.enabled -}}
-{{- if contains .Values.minio.name .Release.Name -}}
+{{- else if .Values.silo.enabled -}}
+{{- if contains .Values.silo.name .Release.Name -}}
 {{- printf "%s.%s.svc.cluster.local" .Release.Name .Release.Namespace -}}
 {{- else -}}
-{{- printf "%s-%s.%s.svc.cluster.local" .Release.Name .Values.minio.name .Release.Namespace -}}
+{{- printf "%s-%s.%s.svc.cluster.local" .Release.Name .Values.silo.name .Release.Namespace -}}
 {{- end -}}
 {{- end -}}
 {{- end -}}
@@ -325,8 +325,8 @@ Woodpecker MinIO access key
 {{- .Values.woodpecker.minio.accessKey -}}
 {{- else if .Values.externalS3.enabled -}}
 {{- .Values.externalS3.accessKey -}}
-{{- else if .Values.minio.accessKey -}}
-{{- .Values.minio.accessKey -}}
+{{- else if .Values.silo.accessKey -}}
+{{- .Values.silo.accessKey -}}
 {{- else -}}
 minioadmin
 {{- end -}}
@@ -340,8 +340,8 @@ Woodpecker MinIO secret key
 {{- .Values.woodpecker.minio.secretKey -}}
 {{- else if .Values.externalS3.enabled -}}
 {{- .Values.externalS3.secretKey -}}
-{{- else if .Values.minio.secretKey -}}
-{{- .Values.minio.secretKey -}}
+{{- else if .Values.silo.secretKey -}}
+{{- .Values.silo.secretKey -}}
 {{- else -}}
 minioadmin
 {{- end -}}
@@ -355,8 +355,8 @@ Woodpecker MinIO bucket name
 {{- .Values.woodpecker.minio.bucketName -}}
 {{- else if .Values.externalS3.enabled -}}
 {{- .Values.externalS3.bucketName -}}
-{{- else if .Values.minio.bucketName -}}
-{{- .Values.minio.bucketName -}}
+{{- else if .Values.silo.bucketName -}}
+{{- .Values.silo.bucketName -}}
 {{- else -}}
 milvus-bucket
 {{- end -}}

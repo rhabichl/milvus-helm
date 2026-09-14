@@ -18,7 +18,7 @@ volumeMounts:
   mountPath: /custom
 etcd:
   replicaCount: 1
-minio:
+silo:
   mode: standalone
   resources:
     requests:
