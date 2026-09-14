@@ -652,9 +652,9 @@ attu:
 ## ref: https://github.com/zilliztech/milvus-helm/blob/master/charts/minio/README.md
 ##
 
-minio:
+silo:
   enabled: true
-  name: minio
+  name: silo
   mode: distributed
   image:
     tag: "RELEASE.2024-12-18T13-15-44Z"

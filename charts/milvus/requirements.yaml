@@ -5,12 +5,13 @@ dependencies:
   condition: etcd.enabled
   tags:
     - etcd
-- name: minio
-  version: 8.0.17
-  repository: https://zilliztech.github.io/milvus-helm
-  condition: minio.enabled
+- name: silo
+  version: 7.0.2
+  # fix as silo doesn't have a helm repository
+  repository: file://../silo/
+  condition: silo.enabled
   tags:
-    - minio
+    - silo
 - name: pulsarv2
   alias: pulsar
   version: 2.7.8

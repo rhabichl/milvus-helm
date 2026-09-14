@@ -43,7 +43,7 @@ common:
   storageType: remote
 {{- end }}
 
-minio:
+silo:
 {{- if .Values.externalS3.enabled }}
   address: {{ .Values.externalS3.host }}
   port: {{ .Values.externalS3.port }}
@@ -58,25 +58,25 @@ minio:
   region: {{ .Values.externalS3.region }}
   useVirtualHost: {{ .Values.externalS3.useVirtualHost }}
 {{- else }}
-{{- if contains .Values.minio.name .Release.Name }}
+{{- if contains .Values.silo.name .Release.Name }}
   address: {{ .Release.Name }}
 {{- else }}
-  address: {{ .Release.Name }}-{{ .Values.minio.name }}
+  address: {{ .Release.Name }}-{{ .Values.silo.name }}
 {{- end }}
-  port: {{ .Values.minio.service.port }}
-  accessKeyID: {{ .Values.minio.accessKey }}
-  secretAccessKey: {{ .Values.minio.secretKey }}
-  useSSL: {{ .Values.minio.tls.enabled }}
-  bucketName: {{ .Values.minio.bucketName }}
-  rootPath: {{ .Values.minio.rootPath }}
-  useIAM: {{ .Values.minio.useIAM }}
-  {{- if .Values.minio.useIAM }}
-  iamEndpoint: {{ .Values.minio.iamEndpoint }}
+  port: {{ .Values.silo.service.port }}
+  accessKeyID: {{ .Values.silo.accessKey }}
+  secretAccessKey: {{ .Values.silo.secretKey }}
+  useSSL: {{ .Values.silo.tls.enabled }}
+  bucketName: {{ .Values.silo.bucketName }}
+  rootPath: {{ .Values.silo.rootPath }}
+  useIAM: {{ .Values.silo.useIAM }}
+  {{- if .Values.silo.useIAM }}
+  iamEndpoint: {{ .Values.silo.iamEndpoint }}
   {{- end }}
-  {{- if ne .Values.minio.region "" }}
-  region: {{ .Values.minio.region }}
+  {{- if ne .Values.silo.region "" }}
+  region: {{ .Values.silo.region }}
   {{- end }}
-  useVirtualHost: {{ .Values.minio.useVirtualHost }}
+  useVirtualHost: {{ .Values.silo.useVirtualHost }}
 {{- end }}
 
 {{- if .Values.externalPulsar.enabled }}
